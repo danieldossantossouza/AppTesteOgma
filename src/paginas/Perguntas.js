@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {Modal,ModalBody,ModalFooter,ModalHeader} from 'reactstrap';
-
+// import 'bootstrap/css/dist/bootstrap.css';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import '../App.css';
+import Buscar from './Buscar';
 
 
 
@@ -106,7 +107,7 @@ return (
     
     <br/>
     <header >
-      
+      <Buscar/>
       {/* <img src={logoCadastro} alt='Cadastro'/> */}
       <button className="btn btn-success" onClick={()=>abrirFecharModalIncluir()}>Pergunta</button> 
       
