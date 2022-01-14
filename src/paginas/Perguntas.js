@@ -108,8 +108,9 @@ return (
     <br/>
     <header >
       <Buscar/>
-      {/* <img src={logoCadastro} alt='Cadastro'/> */}
-      <button className="btn btn-success" onClick={()=>abrirFecharModalIncluir()}>Pergunta</button> 
+      <i class="bi bi-search"></i>
+      {/* <img src={Lupa} alt='lupa'/> */}
+      <button className="btn btn-success" onClick={()=>abrirFecharModalIncluir()}>Nova Pergunta</button> 
       
     </header>
     <table className="table table-bordered"/>

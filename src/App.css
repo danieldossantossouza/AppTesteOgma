@@ -34,11 +34,11 @@
 .perg-container header button {
   align-items: center;
   height: 40px;
-  width: 100px;
+  /* width: 700px; */
   border-radius: 2px;
   border: 2px solid #DCDCE6;
   background: green;
-  margin-left: 700px;
+  /* margin-left: 700px; */
   transition: border-color 0.2s;
 }
 .perg-container header button:hover {
