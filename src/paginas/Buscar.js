@@ -36,6 +36,11 @@ function Buscar(){
             <input type="text" onClick={handleChange}/>
         </div>
         <div className="container-list">
+            <ul>
+                {repos.map((repo)=>{
+                    <li Key={repo.Id}>{repo.Perg}</li>
+                })}
+            </ul>
 
         </div>
         </>
