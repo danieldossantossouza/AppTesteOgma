@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import {Modal,ModalBody,ModalFooter,ModalHeader} from 'reactstrap';
-// import 'bootstrap/css/dist/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import '../App.css';
 import Buscar from './Buscar';
+import  '../Modals/IncluirModal';
+import IncluirModal from '../Modals/IncluirModal';
 
 
 
 function Perguntas(){
+  const [modal, setModal]= useState(false);
+ 
+ 
+
+
 const baseUrl="https://localhost:44391/api/Perguntas";
 const [data,setData]=useState([]);
 const [updateData,setUpdateData]=useState(true);
-const[modalIncluir,setModalIncluir]=useState(false);
+
 const[modalEditar, setModalEditar]=useState(false);
 const[modalExcluir, setModalExcluir]=useState(false);
 
@@ -27,13 +34,14 @@ const [perguntaSelecionada, setPerguntaSelecionada]=useState({
       abrirFecharModalEditar() : abrirFecharModalExcluir();
   }
 
-  const abrirFecharModalIncluir=()=>{
-    setModalIncluir(!modalIncluir);
-  }
+  
 
   const abrirFecharModalEditar=()=>{
     setModalEditar(!modalEditar);
   }
+
+  
+
 
   const abrirFecharModalExcluir=()=>{
     setModalExcluir(!modalExcluir);
@@ -56,17 +64,7 @@ const [perguntaSelecionada, setPerguntaSelecionada]=useState({
     })
     }
 
-    const pedidoPost=async()=>{
-        delete perguntaSelecionada.Id;
-        await axios.post(baseUrl,perguntaSelecionada)
-        .then(response => {
-          setData(data.concat(response.data));
-          setUpdateData(true);
-          abrirFecharModalIncluir();
-        }).catch(error=>{
-          console.log(error);
-        })
-       }
+    
 
        const perguntaPut=async()=>{
         await axios.put(baseUrl+"/"+perguntaSelecionada.id,perguntaSelecionada)
@@ -103,14 +101,24 @@ const [perguntaSelecionada, setPerguntaSelecionada]=useState({
 
 return (
     <div className="perg-container">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous"></link>
+      {/* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous"></link> */}
     
     <br/>
     <header >
       <Buscar/>
       <i class="bi bi-search"></i>
       {/* <img src={Lupa} alt='lupa'/> */}
-      <button className="btn btn-success" onClick={()=>abrirFecharModalIncluir()}>Nova Pergunta</button> 
+      
+      <Link to="/teste">
+          <button className="btn btn-primary" >Outra Pagina </button>
+      </Link>
+
+
+      <button onClick={()=>setModal(true)}>Nova Pergunta</button> 
+      {modal ? <IncluirModal onClouse={()=>setModal(false)}></IncluirModal>:null}
+      
+    
+      
       
     </header>
     <table className="table table-bordered"/>
@@ -146,62 +154,8 @@ return (
   </Link>
 </tbody>
 
-   {/* Modal Incluir */}
-   <Modal isOpen={modalIncluir}>
-    <ModalHeader>Incluir Pergunta</ModalHeader>
-    <ModalBody>
-    <div className='form-group'>
-      <div class="mb-3">
-        <label for="validationTextarea">Pergunta</label>
-        <input type="text-log" className='form-control' name='Perg' onChange={handleChange}/>
-        <div class="invalid-feedback">
-          Inclua a pergunta !
-        </div>
-      </div>
-      <div className='row' style={{margin: "4%"}}>
-      <select class="form-select" aria-label="Default select example">
-         <option selected>Escolha o Tipo de Fromulario</option>
-         <option value="1" >Texto</option>
-         <option value="2">Multipla Escolha</option>
-         <option value="3">Radio Button</option>
-      </select>
-      </div>
-      
-      
-      <div className='row'style={{margin: "4%"}}>
-          Escreva e Marque a Resposta Certa 
-      
-
-      <div className="row" style={{margin: "4%"}}>
-        <input className='top-4 col-md-1' style={{marginTop: "4%"}} type="checkbox"/>
-        <input type="text" class="form-control col-md-11" id="validationDefault05" required/> 
-      </div>
-      <div className="row"style={{margin: "4%"}}>
-        <input className='top-4 col-md-1' style={{marginTop: "4%"}} type="checkbox"/>
-        <input type="text" class="form-control col-md-11" id="validationDefault05" required/> 
-      </div>
-      <div className="row"style={{margin: "4%"}}>
-        <input className='top-4 col-md-1' style={{marginTop: "4%"}} type="checkbox"/>
-        <input type="text" class="form-control col-md-11" id="validationDefault05" required/> 
-      </div>
-      <div className="row"style={{margin: "4%"}}>
-        <input className='top-4 col-md-1' style={{marginTop: "4%"}} type="checkbox"/>
-        <input type="text" class="form-control col-md-11" id="validationDefault05" required/> 
-      </div>
-     
-      </div>
-      
-     
-      
-
-    </div>
-  </ModalBody>
-  <ModalFooter>
-    <button className="btn btn-primary" onClick={()=>pedidoPost()} >Incluir</button>
-    <button className="btn btn-danger" onClick={()=>abrirFecharModalIncluir()}>Cancelar</button>
-    
-  </ModalFooter>
-  </Modal>
+ 
+  
 
   {/* Modal Editar */}
   <Modal isOpen={modalEditar}>

@@ -6,9 +6,13 @@ import Navbar from './Component/Navbar';
 
 
 
+
+
  function App() {
 
   return (
+    <>
+    
   <Router>
     <Navbar/>
     <Routes>
@@ -16,6 +20,7 @@ import Navbar from './Component/Navbar';
       <Route  path="/Respostas" element={ <Respostas />}/>     
     </Routes>          
   </Router>
+  </>
   
   );
 }
