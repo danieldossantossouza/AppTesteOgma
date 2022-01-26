@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap'); */
-
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
  * {
   box-sizing: border-box;
   margin: 0;
@@ -35,10 +34,10 @@
   align-items: center;
   height: 40px;
   /* width: 700px; */
-  border-radius: 2px;
+  border-radius: 7px;
   border: 2px solid #DCDCE6;
   background: green;
-  /* margin-left: 700px; */
+  margin-left: 20px;
   transition: border-color 0.2s;
 }
 .perg-container header button:hover {

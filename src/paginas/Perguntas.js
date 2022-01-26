@@ -7,6 +7,9 @@ import '../App.css';
 import Buscar from './Buscar';
 import  '../Modals/IncluirModal';
 import IncluirModal from '../Modals/IncluirModal';
+import ModalRoot from '../modulos/modal/components/ModalRoot';
+import ModalService from '../modulos/modal/Services/ModalService';
+import TesteModal from '../components/TesteModal';
 
 
 
@@ -27,6 +30,10 @@ const [perguntaSelecionada, setPerguntaSelecionada]=useState({
     Id:'',
     Perg:''
   })
+
+  const addModal = ()=>{
+    ModalService.open(TesteModal);
+  }
 
   const selecionarPergunta=(perguntas,opcao)=>{
     setPerguntaSelecionada(perguntas);
@@ -117,6 +124,9 @@ return (
       <button onClick={()=>setModal(true)}>Nova Pergunta</button> 
       {modal ? <IncluirModal onClouse={()=>setModal(false)}></IncluirModal>:null}
       
+      <ModalRoot/>
+      <button onClick={addModal} className='btn btn-primary m-4'>MODAL</button>
+
     
       
       
