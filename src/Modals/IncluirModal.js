@@ -8,6 +8,7 @@ import './IncluirModal.css';
 
 
 const IncluirModal=({id="modal",onClouse =()=>{},children})=>{
+  
 const handleOutsideClick=(e)=>{
  if(e.target.id===id)onClouse();
 };

@@ -116,16 +116,16 @@ return (
       <i class="bi bi-search"></i>
       {/* <img src={Lupa} alt='lupa'/> */}
       
-      <Link to="/teste">
+      {/* <Link to="/teste">
           <button className="btn btn-primary" >Outra Pagina </button>
-      </Link>
+      </Link> */}
 
 
-      <button onClick={()=>setModal(true)}>Nova Pergunta</button> 
-      {modal ? <IncluirModal onClouse={()=>setModal(false)}></IncluirModal>:null}
+      {/* <button onClick={()=>setModal(true)}>Nova Pergunta</button> 
+      {modal ? <IncluirModal onClouse={()=>setModal(false)}></IncluirModal>:null} */}
       
       <ModalRoot/>
-      <button onClick={addModal} className='btn btn-primary m-4'>MODAL</button>
+      <button onClick={addModal} className='btn btn-primary m-4'>Nova Pergunta</button>
 
     
       
