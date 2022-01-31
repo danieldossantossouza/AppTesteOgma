@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import '../App.css';
 import Buscar from './Buscar';
 import  '../Modals/IncluirModal';
-import IncluirModal from '../Modals/IncluirModal';
+// import IncluirModal from '../Modals/IncluirModal';
 import ModalRoot from '../modulos/modal/components/ModalRoot';
 import ModalService from '../modulos/modal/Services/ModalService';
 import TesteModal from '../components/TesteModal';
@@ -159,8 +159,8 @@ return (
   ))}
   <br/>
 
-<Link to="/Respostas">
-    <button className="btn btn-primary">Outra Pagina </button>
+<Link to="/ListaPergunta">
+    <button className="btn btn-primary">Lista </button>
   </Link>
 </tbody>
 

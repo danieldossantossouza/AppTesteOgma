@@ -2,6 +2,7 @@ import Modal from '../modulos/modal/components/Modal';
 import ModalBody from '../modulos/modal/components/ModalBody';
 import ModalHeader  from '../modulos/modal/components/ModalHeader';
 import ModalFooter from '../modulos/modal/components/ModalFooter';
+import  '../modulos/modal/Styles/ModalRoot.module.css';
 
 export default function TesteModal(props){
 
@@ -52,7 +53,7 @@ export default function TesteModal(props){
       
             </ModalBody>
             <ModalFooter>
-             <button onClick={props.close} className='btn btn-primary'> Fechar modal</button>
+             <button onClick={props.close}  className='btn btn-primary'> Fechar modal</button>
             </ModalFooter>
         </Modal>
     );
