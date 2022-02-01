@@ -1,28 +1,41 @@
 import React,{useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import '../App.css';
+import PaginationSelection from "../components/PaginationSelection";
+import PaginationComponent from "../components/PaginationComponent";
 
  
-function ListaPerguntas(){
-  const[vetor, setVetor]=useState([]);
+function ListaPerguntas() {
+  const [itens, setItens] = useState([]);
+  const [itensPorPage,setItensPorPage] = useState(5);
+  const [carregPagina,setCarregPagina] = useState(0);
+  const pages = Math.ceil(itens.length/itensPorPage);
+  const startIndex = carregPagina * itensPorPage;
+  const endIndex = startIndex + itensPorPage;
+  const currentItens = itens.slice(startIndex,endIndex);
+
   const [status,setStatus]=useState('Carregando...');
 
 
+  useEffect(() => {
 
-  const obertDados = async ()=>{
-      const dados= await fetch('Aqui vai a URL(API)');
-      const converteJson = await dados.json();
-      setVetor(converteJson);
-      setStatus('Dados Carregados com sucesso !');
-
+  const obertDados = async () => {
+      const result= await fetch('Aqui vai a URL(API)')
+      .then(response => response.json())
+      .then(data => data)
+      setItens(result)
+      setStatus('Dados Carregados com sucesso !')
   }
-  
-  useEffect(()=>{
     obertDados();
-  })
+  },[])
+
+  useEffect(()=>{
+    setCarregPagina(0);
+  },[itensPorPage])
 
 return(
  
+  
   <div className="perg-container">
    <h1>{status}</h1>
     <br/>
@@ -37,26 +50,29 @@ return(
     </tr>    
   </thead>
   <tbody>   
-    {vetor.map(perguntas=>(
-  <tr>
-    <td>{perguntas.id}</td>       
-    <td>{perguntas.perg}</td>
-  <td>
-    <button className="btn btn-primary" >Editar Pergunta</button> {"  "}
-    <button className="btn btn-danger">Excluir Pergunta</button>  
-  </td>
-  </tr>
-  ))}
+    
 <br/>
+
 
 <Link to="/">
 <button className="btn btn-primary">Nova Pergunta </button>
 </Link>
 </tbody>
-</div>
 
-     
-  
+<PaginationComponent
+  pages={pages}
+  // CurrentPage={CurrentPage}
+  setCarregPagina={setCarregPagina}/>
+<br/>
+<PaginationSelection 
+itensPorPage={itensPorPage} 
+setItensPorPage={setItensPorPage}/>
+
+
+{currentItens.map(item =>{
+        return <div className="item"><span>{item.Id}</span><span>{item.Perg}</span></div>      })}
+    
+</div> 
 );
 }
 
