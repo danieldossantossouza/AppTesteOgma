@@ -1,7 +1,7 @@
 import React from 'react';
 import  '../paginas/Perguntas';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './IncluirModal.css';
+1
 
 
 
@@ -49,15 +49,13 @@ const handleOutsideClick=(e)=>{
       <div className="row"style={{margin: "4%"}}>
         <input className='top-4 col-md-1' style={{marginTop: "4%"}} type="checkbox"/>
         <input type="text" class="form-control col-md-11" id="validationDefault05" required/> 
+      </div> 
       </div>
-     
-      </div>
-
-
-
 
        </div>
+
      </div>
+
    </div>
   );
 
