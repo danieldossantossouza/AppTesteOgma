@@ -11,22 +11,16 @@ import ModalRoot from '../modulos/modal/components/ModalRoot';
 import ModalService from '../modulos/modal/Services/ModalService';
 import TesteModal from '../components/TesteModal';
 
-
-
 function Perguntas(){
-  const [modal, setModal]= useState(false);
- 
- 
-
-
-const baseUrl="https://localhost:44391/api/Perguntas";
-const [data,setData]=useState([]);
-const [updateData,setUpdateData]=useState(true);
-
-const[modalEditar, setModalEditar]=useState(false);
-const[modalExcluir, setModalExcluir]=useState(false);
-
-const [perguntaSelecionada, setPerguntaSelecionada]=useState({
+  // const [modal, setModal]= useState(false);
+  const baseUrl="https://localhost:44391/api/Perguntas";
+  const [data,setData]=useState([]);
+  const [updateData,setUpdateData]=useState(true);
+  
+  const[modalEditar, setModalEditar]=useState(false);
+  const[modalExcluir, setModalExcluir]=useState(false);
+  
+  const [perguntaSelecionada, setPerguntaSelecionada]=useState({
     Id:'',
     Perg:''
   })
@@ -41,14 +35,9 @@ const [perguntaSelecionada, setPerguntaSelecionada]=useState({
       abrirFecharModalEditar() : abrirFecharModalExcluir();
   }
 
-  
-
   const abrirFecharModalEditar=()=>{
     setModalEditar(!modalEditar);
   }
-
-  
-
 
   const abrirFecharModalExcluir=()=>{
     setModalExcluir(!modalExcluir);
@@ -70,9 +59,6 @@ const [perguntaSelecionada, setPerguntaSelecionada]=useState({
       console.log(error);
     })
     }
-
-    
-
        const perguntaPut=async()=>{
         await axios.put(baseUrl+"/"+perguntaSelecionada.id,perguntaSelecionada)
          .then(response=>{
@@ -109,31 +95,21 @@ const [perguntaSelecionada, setPerguntaSelecionada]=useState({
 return (
     <div className="perg-container">
       {/* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous"></link> */}
-    
     <br/>
     <header >
       <Buscar/>
       <i class="bi bi-search"></i>
-      {/* <img src={Lupa} alt='lupa'/> */}
-      
+      {/* <img src={Lupa} alt='lupa'/> */}  
       {/* <Link to="/teste">
           <button className="btn btn-primary" >Outra Pagina </button>
       </Link> */}
-
-
       {/* <button onClick={()=>setModal(true)}>Nova Pergunta</button> 
       {modal ? <IncluirModal onClouse={()=>setModal(false)}></IncluirModal>:null} */}
       
       <ModalRoot/>
-      <button onClick={addModal} className='btn btn-primary m-4'>Nova Pergunta</button>
-
-    
-      
-      
+      <button onClick={addModal} className='btn btn-primary m-4'>Nova Pergunta</button>    
     </header>
-    <table className="table table-bordered"/>
-        
-        
+    <table className="table table-bordered"/>        
 <thead >
   <tr>
     <th >Id</th>
@@ -141,32 +117,21 @@ return (
   </tr>    
 </thead>
 <tbody>   
-
   {data.map(perguntas=>(
     <tr>
       <td>{perguntas.id}</td>       
       <td>{perguntas.perg}</td>
-
      <td>
         <button className="btn btn-primary" onClick={()=>selecionarPergunta(perguntas,"Editar")}>Editar Pergunta</button> {"  "}
-        <button className="btn btn-danger"onClick={()=>selecionarPergunta(perguntas,"Excluir")}>Excluir Pergunta</button>
-        
-        
-      </td>
-      
-    </tr>
-    
+        <button className="btn btn-danger"onClick={()=>selecionarPergunta(perguntas,"Excluir")}>Excluir Pergunta</button>        
+      </td>    
+    </tr>   
   ))}
   <br/>
-
 <Link to="/ListaPergunta">
     <button className="btn btn-primary">Lista </button>
   </Link>
 </tbody>
-
- 
-  
-
   {/* Modal Editar */}
   <Modal isOpen={modalEditar}>
     <ModalHeader>Editar Pergunta</ModalHeader>
@@ -221,7 +186,6 @@ return (
      </ModalFooter>
    </Modal>
 </div>
-
 );
 
 }

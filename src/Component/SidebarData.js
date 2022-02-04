@@ -14,5 +14,11 @@ export const SidebarData=[
         path:'/ListaPergunta',
         icon:<IoIcons.IoIosPaper/>,
         cName:'nav-text'
+    },
+    {
+        title:'Gerenciador',
+        path:'/NovoGerenciador',
+        icon:<IoIcons.IoIosPaper/>,
+        cName:'nav-text'
     }
 ]

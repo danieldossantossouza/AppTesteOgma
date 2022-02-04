@@ -1,5 +1,4 @@
 import React from "react";
-import {Modal,ModalBody,ModalFooter,ModalHeader} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import  './App.css';
 

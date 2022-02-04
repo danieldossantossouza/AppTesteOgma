@@ -1,8 +1,10 @@
-import React from 'react'
-import {BrowserRouter as Router,Route,Routes } from 'react-router-dom'
+import React from 'react';
+import {BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import Perguntas from './paginas/Perguntas';
 import ListaPergunta from './paginas/ListaPergunta';
 import Navbar from './Component/Navbar';
+import NovoGerenciador from './paginas/NovoGerenciador';
+
 
  function App() {
 
@@ -13,7 +15,8 @@ import Navbar from './Component/Navbar';
     <Navbar/>
     <Routes>
       <Route  path="/" exact element={ <Perguntas />} />
-      <Route  path="/ListaPergunta" element={ <ListaPergunta />}/>     
+      <Route  path="/ListaPergunta" element={ <ListaPergunta />}/>
+      <Route  path="/NovoGerenciador" element={ <NovoGerenciador />}/>     
     </Routes>          
   </Router>
   </>
