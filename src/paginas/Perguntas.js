@@ -10,6 +10,7 @@ import  '../Modals/IncluirModal';
 import ModalRoot from '../modulos/modal/components/ModalRoot';
 import ModalService from '../modulos/modal/Services/ModalService';
 import TesteModal from '../components/TesteModal';
+import Upload from './Upload';
 
 function Perguntas(){
   // const [modal, setModal]= useState(false);
@@ -97,8 +98,8 @@ return (
       {/* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous"></link> */}
     <br/>
     <header >
-      <Buscar/>
-      <i class="bi bi-search"></i>
+      <h5>Criar Perguntas</h5>
+      
       {/* <img src={Lupa} alt='lupa'/> */}  
       {/* <Link to="/teste">
           <button className="btn btn-primary" >Outra Pagina </button>
@@ -107,7 +108,9 @@ return (
       {modal ? <IncluirModal onClouse={()=>setModal(false)}></IncluirModal>:null} */}
       
       <ModalRoot/>
-      <button onClick={addModal} className='btn btn-primary m-4'>Nova Pergunta</button>    
+      <button onClick={addModal} className='btn btn-primary m-4'>Nova Pergunta</button>   
+      <Buscar/>
+      <i class="bi bi-search"></i> 
     </header>
     <table className="table table-bordered"/>        
 <thead >
@@ -129,8 +132,9 @@ return (
   ))}
   <br/>
 <Link to="/ListaPergunta">
-    <button className="btn btn-primary">Lista </button>
+    <button className="btn btn-primary">Lista de Perguntas</button>
   </Link>
+  
 </tbody>
   {/* Modal Editar */}
   <Modal isOpen={modalEditar}>

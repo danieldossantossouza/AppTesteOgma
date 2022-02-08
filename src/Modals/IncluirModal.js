@@ -1,7 +1,7 @@
 import React from 'react';
 import  '../paginas/Perguntas';
 import 'bootstrap/dist/css/bootstrap.min.css';
-1
+
 
 
 
